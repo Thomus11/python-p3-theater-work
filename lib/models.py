@@ -50,25 +50,10 @@ session = Session()
     
 role = Role(character_name='Hamlet')
 
-audition1 = Audition(actor='Joy Jane', location='New York', phone=1723466238, role=role)
-audition2 = Audition(actor='Jane Smith', location='Los Angeles', phone=9876543210, role=role) 
-audition3 = Audition(actor='Alice Johnson', location='Chicago', phone=5555555555, role=role)
+audition1 = Audition(actor='Thomus Maina', location='New York', phone=1723466238, role=role)
+audition2 = Audition(actor='Sharon Talia', location='Los Angeles', phone=9876543210, role=role) 
+audition3 = Audition(actor='Ruth Ashley', location='Chicago', phone=6756348976, role=role)
 
 session.add(role)
 session.add_all([audition1, audition2, audition3])
 session.commit()
-
-    ## Hire an actor (Joy Jane)
-audition1.call_back()
-session.commit()
-
-print("Actors who auditioned for Hamlet:", role.actors)
-print("Locations where auditions took place:", role.locations)
-
-    # Get the lead actor
-lead = role.lead()
-print("Lead actor for Hamlet:", lead.actor if isinstance(lead, Audition) else lead)
-
-    #get the understudy
-understudy = role.understudy()
-print("Understudy for Hamlet:", understudy.actor if isinstance(understudy, Audition) else understudy)
